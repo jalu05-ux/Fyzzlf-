@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Favorite Person</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap');
+:root{--cream:#f7f0e8;--paper:#fffaf4;--wine:#552b32;--rose:#b77c7d;--ink:#39272a;--muted:#8c7472}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Poppins,Arial,sans-serif;font-weight:300}
+button{font:inherit;cursor:pointer}
+.topline{height:7px;background:var(--wine)}
+.site-note{position:fixed;z-index:10;top:10px;left:50%;transform:translateX(-50%);padding:7px 15px;border-radius:30px;background:#552b32;color:#fff8f0;font-size:10px;letter-spacing:2px;white-space:nowrap;box-shadow:0 4px 20px #39272a22}
+.page{min-height:100svh;padding:76px 20px 48px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.inner{width:min(100%,760px);margin:auto;position:relative;z-index:1}
+.eyebrow{text-transform:uppercase;letter-spacing:4px;font-size:10px;color:var(--rose);text-align:center;margin-bottom:14px}
+h1,h2,h3,.script{font-family:'Playfair Display',Georgia,serif;font-weight:400}
+h1{font-size:clamp(48px,11vw,90px);line-height:.98;text-align:center;margin:0;color:var(--wine)}
+h1 em{font-weight:400}
+h2{font-size:clamp(34px,7vw,55px);line-height:1.08;text-align:center;color:var(--wine);margin:0 0 18px}
+h3{font-size:26px;color:var(--wine);margin:0 0 8px}
+p{font-size:13px;line-height:1.95}
+.subtitle{text-align:center;letter-spacing:2px;font-size:10px;text-transform:uppercase;margin-top:22px;color:var(--muted)}
+.ornament{font-size:23px;text-align:center;color:var(--rose);margin:16px 0}
+.btn{border:1px solid var(--wine);background:var(--wine);color:var(--paper);padding:12px 22px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase;font-size:10px;transition:.25s}
+.btn:hover{background:transparent;color:var(--wine)}
+.btn.light{background:transparent;color:var(--wine)}
+.btn.light:hover{background:var(--wine);color:var(--paper)}
+.center{text-align:center}
+.hero{background:radial-gradient(ellipse at center,#fffaf4 0%,#f7f0e8 66%)}
+.hero:before,.hero:after{content:"✿";position:absolute;color:#d8b7a9;font-size:100px;opacity:.23}
+.hero:before{top:12%;left:6%;transform:rotate(-25deg)}
+.hero:after{right:6%;bottom:10%;transform:rotate(25deg)}
+.hero .big-heart{font-size:26px;color:var(--rose);margin:22px auto 12px}
+.hero .btn{margin-top:18px}
+.menu-page{background:#f1e6dc}
+.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px auto 0;max-width:520px}
+.menu-card{background:var(--paper);border:1px solid #e5d3c8;padding:22px 12px;text-align:center;color:var(--wine);transition:transform .2s,box-shadow .2s}
+.menu-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px #552b3212}
+.menu-card .symbol{font-size:24px;display:block;margin-bottom:8px}
+.menu-card strong{font-family:'Playfair Display',serif;font-weight:400;font-size:19px;display:block}
+.menu-card small{font-size:9px;letter-spacing:1px;color:var(--muted);display:block;margin-top:6px}
+.section-head{margin-bottom:28px}
+.panel{background:var(--paper);padding:clamp(20px,5vw,42px);border:1px solid #e7d8cc;box-shadow:0 12px 40px #552b3208}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+.photo{width:100%;aspect-ratio:4/5;object-fit:cover;background:#eadbd0;border:8px solid var(--paper);box-shadow:0 4px 20px #39272a14;display:block}
+.photo-placeholder{display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:11px;line-height:1.8;padding:16px}
+.caption{font-family:'Playfair Display',serif;font-style:italic;color:var(--muted);text-align:center;font-size:14px;margin-top:10px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery figure{margin:0;background:var(--paper);padding:7px 7px 14px;box-shadow:0 4px 16px #39272a0c;cursor:pointer;transition:transform .2s}
+.gallery figure:hover{transform:rotate(-1deg) translateY(-3px)}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#eadbd0}
+.gallery figcaption{font-family:'Playfair Display',serif;font-size:13px;text-align:center;margin-top:9px}
+.letter{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;line-height:1.65;white-space:pre-line}
+.letter .dear{font-style:italic;font-size:28px;color:var(--wine)}
+.map-line{display:flex;justify-content:center;align-items:center;gap:10px;margin:20px 0;color:var(--rose);font-size:13px}
+.map-line span{height:1px;width:50px;background:#d7b6ac}
+.wish-box{max-width:510px;margin:auto;text-align:center;background:var(--paper);padding:30px 22px;border:1px solid #e7d8cc}
+.wish-star{font-size:35px;color:var(--rose);margin-bottom:8px}
+input,textarea{width:100%;border:1px solid #dcc8bc;background:#fffdf9;padding:12px;color:var(--ink);font:inherit;font-size:12px;outline:none;margin:7px 0}
+textarea{min-height:90px;resize:vertical}
+input:focus,textarea:focus{border-color:var(--rose)}
+.footer{text-align:center;font-size:10px;color:var(--muted);letter-spacing:1px;margin-top:24px}
+.floating{position:fixed;right:14px;bottom:14px;z-index:9;background:var(--wine);color:white;border:0;border-radius:50%;width:42px;height:42px;font-size:17px;box-shadow:0 5px 18px #39272a33}
+.lightbox{position:fixed;inset:0;background:#201518ed;z-index:30;display:none;align-items:center;justify-content:center;padding:20px}
+.lightbox.show{display:flex}
+.lightbox-card{max-width:680px;width:100%;background:var(--paper);padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;position:relative}
+.lightbox img{width:100%;max-height:70vh;object-fit:contain;background:#eadbd0}
+.close{position:absolute;right:7px;top:7px;border:0;background:var(--wine);color:white;width:30px;height:30px;border-radius:50%;z-index:2}
+.fade-in{animation:fade .8s both}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:560px){.page{padding:70px 17px 35px}.two-col{grid-template-columns:1fr}.two-col .photo{max-width:260px;margin:auto}.gallery{grid-template-columns:repeat(2,1fr)}.lightbox-card{grid-template-columns:1fr;max-height:90vh;overflow:auto}.lightbox img{max-height:45vh}.letter{font-size:19px}.menu-grid{gap:9px}.menu-card{padding:18px 8px}}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<div class="site-note">A LITTLE SURPRISE FOR YOU ♡</div>
+
+<section class="page hero" id="home">
+  <div class="inner fade-in">
+    <div class="eyebrow">a day made just for you</div>
+    <h1>Happy<br><em>Birthday</em></h1>
+    <div class="big-heart">♡</div>
+    <p class="subtitle">To my favorite person in the whole world</p>
+    <div class="center"><button class="btn" onclick="goTo('menu')">Open your surprise ↗</button></div>
+    <div class="ornament">❦</div>
+  </div>
+</section>
+
+<section class="page menu-page" id="menu">
+  <div class="inner fade-in">
+    <div class="section-head">
+      <div class="eyebrow">made with love</div>
+      <h2>A Little Gift<br>For You</h2>
+      <p class="center">Ada beberapa hal kecil yang ingin aku tunjukkan. Buka satu per satu, ya.</p>
+    </div>
+    <div class="menu-grid">
+      <button class="menu-card" onclick="goTo('birthday')"><span class="symbol">🎂</span><strong>Birthday</strong><small>YOUR SPECIAL DAY</small></button>
+      <button class="menu-card" onclick="goTo('memories')"><span class="symbol">♡</span><strong>Things I Adore About You</strong><small>ONLY YOU</small></button>
+      <button class="menu-card" onclick="goTo('letter')"><span class="symbol">✉</span><strong>Love Letter</strong><small>WORDS FROM MY HEART</small></button>
+      <button class="menu-card" onclick="goTo('flowers')"><span class="symbol">✿</span><strong>Flowers</strong><small>JUST FOR YOU</small></button>
+      <button class="menu-card" onclick="goTo('wish')" style="grid-column:1/-1"><span class="symbol">✧</span><strong>Make a Wish</strong><small>ONE WISH, JUST FOR YOU</small></button>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="birthday">
+  <div class="inner panel fade-in">
+    <div class="eyebrow">chapter one · your day</div>
+    <h2>Happy Birthday,<br>Kaylaaa</h2>
+    <div class="two-col">
+      <div>
+        <p>Hari ini adalah hari spesial karena seseorang yang begitu berharga hadir di dunia. Semoga usia barumu dipenuhi hal-hal baik, tawa yang tulus, dan mimpi-mimpi yang perlahan menjadi nyata.</p>
+        <p>Teruslah menjadi dirimu sendiri. Kamu pantas mendapatkan kebahagiaan, ketenangan, dan cinta yang baik.</p>
+        <p class="caption">“May this new chapter be kind to you.”</p>
+      </div>
+      <div><img class="photo" src="foto-utama.jpg" alt="Foto ulang tahun" onerror="this.outerHTML='<div class=&quot;photo photo-placeholder&quot;>Tambahkan foto utama di sini.<br>Namai file-nya <b>foto-utama.jpg</b></div>'"></div>
+    </div>
+    <div class="center" style="margin-top:24px"><button class="btn light" onclick="goTo('memories')">Next: Our Memories →</button></div>
+  </div>
+</section>
+
+<section class="page menu-page" id="memories">
+  <div class="inner fade-in">
+    <div class="eyebrow">chapter two · what makes you special</div>
+    <h2>only you,<br>always</h2>
+    <p class="center">Hal-hal sederhana kadang menjadi kenangan yang paling berarti.</p>
+    <div class="gallery">
+      <figure onclick="openPhoto('foto1.jpg','Your smile','Pada senyummu, dunia yang riuh menemukan teduhnya.')"><img src="foto1.jpg" alt="Kenangan 1" onerror="this.src='https://placehold.co/400x530/e8d7cb/552b32?text=Photo+1'"><figcaption>Senyummu ♡</figcaption></figure>
+      <figure onclick="openPhoto('foto2.jpg', 'Your eyes', 'Ada semesta yang diam-diam tumbuh di sepasang matamu.')">
+  <img src="foto2.jpg" alt="Kenangan 2">
+  <figcaption>Your eyes ♡</figcaption>
+      </figure>
+      <figure onclick="openPhoto('foto3.jpg','tawamuuu','Tawamu adalah sajak yang tak pernah lelah ingin kudengar.')"><img src="foto3.jpg" alt="Kenangan 3" onerror="this.src='https://placehold.co/400x530/e8d7cb/552b32?text=Photo+3'"><figcaption>Tawamu ♡</figcaption></figure>
+      <figure onclick="openPhoto('foto4.jpg','Always remember','Semoga bahagiamu selalu lebih luas daripada segala dukamu.')"><img src="foto4.jpg" alt="Kenangan 4" onerror="this.src='https://placehold.co/400x530/e8d7cb/552b32?text=Photo+4'"><figcaption>Your happiness ♡</figcaption></figure>
+      <figure onclick="openPhoto('foto5.jpg','Waktu','Di antara ribuan waktu, aku bersyukur sempat bertemu denganmu.')"><img src="foto5.jpg" alt="Kenangan 5" onerror="this.src='https://placehold.co/400x530/e8d7cb/552b32?text=Photo+5'"><figcaption>Waktu ♡</figcaption></figure>
+      <figure onclick="openPhoto('foto6.jpg','Kamu','Entah berapa banyak keindahan yang semesta kumpulkan hingga akhirnya tercipta dirimu.')"><img src="foto6.jpg" alt="Kenangan 6" onerror="this.src='https://placehold.co/400x530/e8d7cb/552b32?text=Photo+6'"><figcaption>You ♡</figcaption></figure>
+    </div>
+    <p class="center" style="font-size:10px;color:var(--muted)">Ketuk foto untuk melihat pesan kecil di sampingnya.</p>
+    <div class="center" style="margin-top:22px"><button class="btn" onclick="goTo('letter')">Read my letter →</button></div>
+  </div>
+</section>
+
+<section class="page" id="letter">
+  <div class="inner panel fade-in">
+    <div class="eyebrow">chapter three · from my heart</div>
+    <h2>A Letter<br>For You</h2>
+    <div class="letter"><div class="dear">Dear you,</div>
+Aku mungkin tidak selalu pandai merangkai kata, tetapi aku ingin kamu tahu bahwa kehadiranmu berarti. Terima kasih sudah menjadi bagian dari hari-hariku dan menghadirkan banyak hal kecil yang membuatku tersenyum.
+
+Di hari ulang tahunmu ini, aku berharap kamu selalu diberi kesehatan, dikelilingi orang-orang yang tulus, dan diberi kekuatan untuk melewati hari-hari yang tidak mudah.
+
+Kalau suatu hari semuanya terasa berat, semoga kamu ingat bahwa kamu sudah berusaha sejauh ini. Tidak apa-apa untuk beristirahat, pelan-pelan saja. Kamu tidak harus selalu kuat setiap saat.
+
+Semoga banyak hal baik datang kepadamu, bukan hanya hari ini, tetapi juga di hari-hari setelahnya.
+
+<div class="dear">With all my love, ♡</div><div style="text-align:right;font-size:17px">Someone who cares about you</div></div>
+    <div class="center" style="margin-top:26px"><button class="btn light" onclick="goTo('flowers')">A flower for you →</button></div>
+  </div>
+</section>
+
+<section class="page menu-page" id="flowers">
+  <div class="inner fade-in">
+    <div class="eyebrow">chapter four · a little bouquet</div>
+    <h2>Beautiful<br>Flowers</h2>
+    <div class="two-col" style="margin-top:25px">
+      <img class="photo" src="bunga.jpg" alt="Bunga untukmu" onerror="this.outerHTML='<div class=&quot;photo photo-placeholder&quot; style=&quot;aspect-ratio:4/5;font-size:54px&quot;>💐<br><span style=&quot;font-size:11px&quot;>A bouquet for you</span></div>'">
+      <div>
+        <h3>For someone special</h3>
+        <p>Kalau aku bisa mengirimkan bunga lewat layar ini, aku akan memilih buket yang paling indah untukmu.</p>
+        <p>Anggap bunga kecil ini sebagai pengingat bahwa kamu layak mendapatkan hal-hal yang indah dan tulus.</p>
+        <p class="caption">“Flowers for you, today and always.”</p>
+      </div>
+    </div>
+    <div class="center" style="margin-top:24px"><button class="btn" onclick="goTo('wish')">Make a wish ✧</button></div>
+  </div>
+</section>
+
+<section class="page" id="wish">
+  <div class="inner fade-in">
+    <div class="eyebrow">the final little surprise</div>
+    <h2>Make a Wish</h2>
+    <div class="wish-box">
+      <div class="wish-star">✧</div>
+      <p>Pejamkan mata sebentar, tarik napas, lalu pikirkan satu harapan yang ingin kamu wujudkan.</p>
+      <input id="wishName" type="text" placeholder="Namamu (opsional)">
+      <textarea id="wishText" placeholder="Tulis harapanmu di sini (opsional)..."></textarea>
+      <button class="btn" onclick="makeWish()">I Made a Wish ♡</button>
+      <p id="wishResult" class="center" aria-live="polite"></p>
+      <div class="ornament">❦</div>
+      <p class="caption">Semoga satu per satu harapan baikmu menemukan jalannya.</p>
+    </div>
+    <div class="center" style="margin-top:24px"><button class="btn light" onclick="goTo('home')">↶ Start again</button></div>
+    <div class="footer">MADE WITH LOVE · JUST FOR YOU ♡</div>
+  </div>
+</section>
+
+<button class="floating" onclick="goTo('menu')" aria-label="Buka menu">♡</button>
+
+<div class="lightbox" id="lightbox" onclick="closePhoto(event)">
+  <div class="lightbox-card">
+    <button class="close" onclick="closePhoto(event)">×</button>
+    <img id="lightboxImg" src="" alt="Foto kenangan">
+    <div><div class="eyebrow">a memory to keep</div><h3 id="lightboxTitle">A little moment</h3><p id="lightboxText">Pesan kecil untukmu.</p><p class="caption">♡</p></div>
+  </div>
+</div>
+
+<script>
+function goTo(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function openPhoto(src,title,message){
+  const box=document.getElementById('lightbox');
+  const img=document.getElementById('lightboxImg');
+  img.src=src;
+  img.onerror=()=>{img.src='https://placehold.co/500x700/e8d7cb/552b32?text=Add+Your+Photo'};
+  document.getElementById('lightboxTitle').textContent=title;
+  document.getElementById('lightboxText').textContent=message;
+  box.classList.add('show');
+}
+function closePhoto(event){
+  if(event.target.id==='lightbox'||event.target.classList.contains('close')){
+    document.getElementById('lightbox').classList.remove('show');
+  }
+}
+function makeWish(){
+  const name=document.getElementById('wishName').value.trim();
+  const result=document.getElementById('wishResult');
+  result.textContent=(name?'Untuk '+name+', ':'')+'Aamiin. Semoga harapan baikmu terkabul pada waktu yang tepat. ♡';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('show')});
+</script>
+</body>
+</html>
