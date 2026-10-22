@@ -75,6 +75,37 @@ input:focus,textarea:focus{border-color:var(--rose)}
 </style>
 </head>
 <body>
+  
+<!-- HALAMAN PEMBUKA MUSIK -->
+<section id="musicIntro" style="
+  position:fixed;inset:0;z-index:9999;
+  background:linear-gradient(145deg,#c0e8f9,#26547c);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;text-align:center;color:white;
+  font-family:Georgia,serif;">
+  <div style="max-width:400px;width:100%">
+    <div style="font-size:50px">♫ ♡</div>
+    <h1>A Little Melody for You</h1>
+    <p>Sebelum membaca surat kecil ini, nyalakan dulu lagu yang aku siapkan untukmu.</p>
+
+    <button onclick="document.getElementById('myMusic').play()"
+      style="padding:12px 20px;border:0;border-radius:25px;background:white;color:#26547c;font-weight:bold">
+      ♫ Putar Musik
+    </button>
+
+    <p>
+      <button onclick="enterBirthday()"
+        style="padding:12px 20px;border:0;border-radius:25px;background:#26547c;color:white;font-weight:bold">
+        Lanjut ke ucapan ♡ →
+      </button>
+    </p>
+  </div>
+</section>
+
+<audio id="myMusic" loop>
+  <source src="Jatuhsuka.mp3" type="audio/mpeg">
+</audio>
+  
 <div class="topline"></div>
 <div class="site-note">A LITTLE SURPRISE FOR YOU ♡</div>
 
@@ -231,6 +262,13 @@ function makeWish(){
   const result=document.getElementById('wishResult');
   result.textContent=(name?'Untuk '+name+', ':'')+'Aamiin. Semoga harapan baikmu terkabul pada waktu yang tepat. ♡';
 }
+  function enterBirthday() {
+  document.getElementById('musicIntro').style.display = 'none';
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+  }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('show')});
 </script>
   
